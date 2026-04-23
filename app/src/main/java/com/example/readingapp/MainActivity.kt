@@ -36,59 +36,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            var splash by remember{mutableStateOf(true)}
+            var showSplash by remember { mutableStateOf(true) }
 
             LaunchedEffect(Unit) {
                 delay(2000)
-                splash = false
+                showSplash = false
             }
 
-            if(splash){
-                ReadingAppSplash()
-            }else{
-                AuthorizationScreen()
+            if (showSplash) {
+                println("lime")
+                SplashScreen()
+            } else {
+                println("LEMON LEMONNNNNNNNNN!!!!!!")
+                OpeningScreen2()
             }
-            /*AuthorizationScreen()*/
         }
-    }
-}
-
-val kazimirRegular = FontFamily(
-    Font(R.font.kazimirtext)
-)
-
-val interSemibold = FontFamily(
-    Font(R.font.intersemibold)
-)
-
-@Composable
-fun ReadingAppSplash() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFC6E4A2)),
-        contentAlignment = Alignment.Center
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.icon),
-            contentDescription = "Логотип",
-            modifier = Modifier.size(100.dp)
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            modifier = Modifier.padding(top = 150.dp),
-            text = "АЙЫМНЬЫТ",
-            style = MaterialTheme.typography.headlineMedium,
-            color = Color.White,
-            fontFamily = interSemiBold
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ReadingAppSplashPreview() {
-    ReadingAppTheme(dynamicColor = false) {
-        ReadingAppSplash()
     }
 }
