@@ -1,3 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Базовая тема приложения -->
+    <style name="Theme.ReadingApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Ваши настройки темы -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- другие настройки -->
+    </style>
 
+    <!-- Тема для Splash Screen -->
+    <style name="Theme.ReadingApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.ReadingApp</item>
+    </style>
 </resources>
