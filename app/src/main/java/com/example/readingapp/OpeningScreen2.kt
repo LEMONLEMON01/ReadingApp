@@ -3,6 +3,7 @@ package com.example.readingapp
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,12 +23,14 @@ import com.example.readingapp.ui.theme.ReadingAppTheme
 @Composable
 fun OpeningScreen2(){
     var showMainScreen by remember { mutableStateOf(false) }
+    var showAuthScreen by remember { mutableStateOf(false) }
 
     if(showMainScreen){
-        println("lemon lemon")
-        MainScreen()
-
-    }else{
+        AppNavigation()
+    }else if(showAuthScreen){
+        AuthorizationScreen()
+    }
+    else{
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.TopCenter
@@ -43,15 +46,15 @@ fun OpeningScreen2(){
                 )
 
                 FilledButtonExample(
-                    onClick = {  },
+                    onClick = { showAuthScreen = true },
                     text = "Войти или зарегистрироваться",
-                    modifier = Modifier.padding(15.dp)
+                    modifier = Modifier.padding(15.dp).padding(top = 200.dp).fillMaxWidth()
                 )
 
                 FilledButtonExample(
                     onClick = { showMainScreen = true },
                     text = "Позже",
-                    modifier = Modifier.padding(15.dp),
+                    modifier = Modifier.padding(15.dp).fillMaxWidth(),
 
                 )
             }
